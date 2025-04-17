@@ -15,6 +15,7 @@ const onboardingSteps = [
     id: "goals",
     question: "What is your primary reason for using NutriPlan?",
     sub: "Select up to 3 that are important to you, including one weight goal.",
+    multiSelect: true,
     options: [
       { label: "Improve nutrition", sub: "" },
       { label: "Support fitness goals", sub: "" },
@@ -38,6 +39,7 @@ const onboardingSteps = [
     id: "barrierWeight",
     question: "In the past, what have been your barriers to losing weight?",
     sub: "Select all that apply.",
+    multiSelect: true,
     options: [
       { label: "Lack of time", sub: "" },
       { label: "Difficult to make food choices", sub: "" },
@@ -97,6 +99,7 @@ const onboardingSteps = [
     id: "dislikes",
     question: "Any dislikes",
     sub: "",
+    multiSelect: true,
     options: [
       { label: "Fufu", sub: "" },
       { label: "Amala", sub: "" },
@@ -117,30 +120,57 @@ const onboardingSteps = [
 const Onboarding = () => {
   const navigate = useNavigate();
 
+const [reminderDecisionMade, setReminderDecisionMade] = useState(false);
+
+
   const goToHome = () => {
-    navigate('/Homepage');
+    navigate('./Homepage');
   };
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState({
     fName: "",
+    goals: [],
     gender: "",
     birthdate: "",
     country: "",
     heightFeet: "",
     heightInches: "",
+    weightlossBarrier:[],
     currentWeight: "",
     goalWeight: "",
     diet:"",
-    dislikes:"",
+    dislikes:[],
     reminderDay: "",
     reminderTime: "",
   });
 
   const handleSelect = (selectedLabel) => {
     const currentStep = onboardingSteps[step];
-    setAnswers((prev) => ({ ...prev, [currentStep.id]: selectedLabel }));
-    handleNext();
+    const stepId = currentStep.id;
+  
+    if (currentStep.multiSelect) {
+      setAnswers((prev) => {
+        const existing = prev[stepId] || [];
+        let updated;
+  
+        if (existing.includes(selectedLabel)) {
+          // If already selected, remove it
+          updated = existing.filter((label) => label !== selectedLabel);
+        } else {
+          // Add new selection (and optionally limit it to 3 for "goals")
+          if (stepId === "goals" && existing.length >= 3) return prev;
+          updated = [...existing, selectedLabel];
+        }
+  
+        return { ...prev, [stepId]: updated };
+      });
+    } else {
+      // Single selection
+      setAnswers((prev) => ({ ...prev, [stepId]: selectedLabel }));
+      handleNext();
+    }
   };
+  
 
   const handleInputChange = (event) => {
     setAnswers({ ...answers, [event.target.name]: event.target.value });
@@ -169,6 +199,7 @@ const Onboarding = () => {
                 : onboardingSteps[step].question}
             </h2>
             <p className='sub'>{onboardingSteps[step].sub}</p>
+            
 
             {onboardingSteps[step].textbox ? (
               <div className='form' style={{ width: '100%' }}>
@@ -181,6 +212,7 @@ const Onboarding = () => {
                   placeholder="Enter your first name"
                 />
               </div>
+              
             ) : onboardingSteps[step].form ? (
               <div className='form'>
                 {onboardingSteps[step].id === "personalInfo" && (
@@ -241,6 +273,7 @@ const Onboarding = () => {
                     <p id='fineprint'>We use this information to calculate an accurate caloric goal for you.</p>
                   </>
                 )}
+
 
 {onboardingSteps[step].id === "physicalInfo" && (
   <>
@@ -309,21 +342,28 @@ const Onboarding = () => {
 )}
                 
               </div>
-            ) : (
-              <div className='options'>
-                {onboardingSteps[step].options?.map((option) => (
-                  <button
-                    key={option.label}
-                    className='optionButton'
-                    onClick={() => handleSelect(option.label)}
-                  >
-                    <strong>{option.label}</strong>
-                    <br />
-                    <small className='optionSubText'>{option.sub}</small>
-                  </button>
-                ))}
-              </div>
-            )}
+) : (
+  <div className='options'>
+    {onboardingSteps[step].options?.map((option) => {
+      const stepId = onboardingSteps[step].id;
+      const isSelected = onboardingSteps[step].multiSelect
+        ? answers[stepId]?.includes(option.label)
+        : answers[stepId] === option.label;
+
+      return (
+        <button
+          key={option.label}
+          className={`optionButton ${isSelected ? 'selected' : ''}`}
+          onClick={() => handleSelect(option.label)}
+        >
+          <strong>{option.label}</strong>
+          <br />
+          <small className='optionSubText'>{option.sub}</small>
+        </button>
+      );
+    })}
+  </div>
+)}
 {onboardingSteps[step].reminder && (
   <div className="form">
     {/* Day of the week */}

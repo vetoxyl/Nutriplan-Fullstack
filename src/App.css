@@ -110,6 +110,11 @@ select option:hover {
   color: #059669;
 }
 
+.optionButton.selected {
+  border: 1px solid #059669;
+  color: #059669;
+}
+
 /* Button Container */
 .buttonContainer {
   display: flex;
