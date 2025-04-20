@@ -57,6 +57,7 @@
 /* Input Fields */
 
 .input {
+  width: 92%;
   padding: 10px;
   font-size: 16px;
   border-radius: 5px;

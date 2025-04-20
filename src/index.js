@@ -1,23 +1,15 @@
+// src/index.js
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import './App.css'; 
-import Homepage from './Homepage';
-import Carousel from './Carousel';
-import Onboarding from './Onboard';
-import reportWebVitals from './reportWebVitals';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
+import App from './App';
+//import './styles/App.css'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-    <Routes>
-        <Route path="/" element={<Onboarding />} />
-        <Route path="/Homepage" element={<Homepage />} />
-      </Routes>
+      <App />
     </BrowserRouter>
   </React.StrictMode>
 );
-
-reportWebVitals();

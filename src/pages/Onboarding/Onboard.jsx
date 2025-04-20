@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react"; 
 import { useNavigate } from 'react-router-dom';
-import Homepage from "./Homepage";
-import './App.css';
+import Homepage from '../Homepage/Homepage';
+import '../../styles/Onboard.css';
+
 
 
 const onboardingSteps = [
@@ -202,7 +203,7 @@ const [reminderDecisionMade, setReminderDecisionMade] = useState(false);
             
 
             {onboardingSteps[step].textbox ? (
-              <div className='form' style={{ width: '100%' }}>
+              <div className='form' style={{ width: '90%' }}>
                 <input
                   type="text"
                   name="fName"
