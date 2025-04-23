@@ -1,9 +1,4 @@
-import React, { useState, useEffect } from "react"; 
-import { useNavigate } from 'react-router-dom';
-import Homepage from '../Homepage/Homepage';
-import '../../styles/Onboard.css';
-
-
+import React, { useState } from 'react';
 
 const onboardingSteps = [
   {
@@ -119,14 +114,6 @@ const onboardingSteps = [
 ];
 
 const Onboarding = () => {
-  const navigate = useNavigate();
-
-const [reminderDecisionMade, setReminderDecisionMade] = useState(false);
-
-
-  const goToHome = () => {
-    navigate('./Homepage');
-  };
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState({
     fName: "",
@@ -155,10 +142,8 @@ const [reminderDecisionMade, setReminderDecisionMade] = useState(false);
         let updated;
   
         if (existing.includes(selectedLabel)) {
-          // If already selected, remove it
           updated = existing.filter((label) => label !== selectedLabel);
         } else {
-          // Add new selection (and optionally limit it to 3 for "goals")
           if (stepId === "goals" && existing.length >= 3) return prev;
           updated = [...existing, selectedLabel];
         }
@@ -166,13 +151,11 @@ const [reminderDecisionMade, setReminderDecisionMade] = useState(false);
         return { ...prev, [stepId]: updated };
       });
     } else {
-      // Single selection
       setAnswers((prev) => ({ ...prev, [stepId]: selectedLabel }));
       handleNext();
     }
   };
   
-
   const handleInputChange = (event) => {
     setAnswers({ ...answers, [event.target.name]: event.target.value });
   };
@@ -410,7 +393,6 @@ const [reminderDecisionMade, setReminderDecisionMade] = useState(false);
               day: answers.reminderDay,
               time: answers.reminderTime
             });
-            goToHome();
           } else {
             alert("Please select both a day and a time.");
           }
@@ -425,7 +407,6 @@ const [reminderDecisionMade, setReminderDecisionMade] = useState(false);
           // Clear or nullify reminder info
           handleInputChange({ target: { name: "reminderDay", value: "" } });
           handleInputChange({ target: { name: "reminderTime", value: "" } });
-          goToHome(); // Replace with your navigation logic
         }}
       >
         Not Now
