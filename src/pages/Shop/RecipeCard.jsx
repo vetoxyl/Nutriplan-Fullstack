@@ -1,5 +1,5 @@
 import React from 'react';
-import './RecipeCard.css';
+import '../../styles/RecipeCard.css';
 
 const RecipeCard = () => {
   return (
@@ -11,7 +11,7 @@ const RecipeCard = () => {
 
       <div className="card">
         <img
-          src="https://via.placeholder.com/150" // replace with actual image
+          src="/meals/akaraandpap.png"
           alt="Akara and Pap"
           className="main-image"
         />
@@ -32,7 +32,7 @@ const RecipeCard = () => {
         <div className="tabs">
           <span>About</span>
           <span>Grab Ingredients</span>
-          <span>Find Cooking ware</span>
+          <span>Find Cookware</span>
           <span>Cook and Enjoy!</span>
         </div>
 

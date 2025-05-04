@@ -8,9 +8,12 @@ import SignInForm from './pages/SignIn/SignInForm';
 import SignUpForm from './pages/SignIn/SignUpForm';
 import { AuthProvider } from './contexts/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
+import RecipeCard from './pages/Shop/RecipeCard';
 import './styles/SignGen.css';
 import './styles/SignIn.css';
 import './styles/SignUp.css';
+import './styles/RecipeCard.css';
+import './styles/MealCard.css';
 
 const App = () => {
   return (
@@ -35,6 +38,14 @@ const App = () => {
             </ProtectedRoute>
           } 
         />
+        <Route 
+          path="/Shop" 
+          element={
+            <ProtectedRoute>
+              <RecipeCard />
+            </ProtectedRoute>
+          } 
+        /> 
         <Route path="*" element={<Navigate to="/signin" replace />} />
       </Routes>
     </AuthProvider>

@@ -15,7 +15,7 @@ import {
   ShoppingCart,
 } from "lucide-react";
 
-import "./Homepage.css";
+import '../../styles/RecipeCard.css';
 
 export default function NutriPlan() {
   // State for tracking active menu item
@@ -221,7 +221,7 @@ export default function NutriPlan() {
                 <div className="meal-divider"></div>
 
                 <MealItem
-                  mealType="Launch"
+                  mealType="Lunch"
                   mealName="Mediterranean Salad Bowl"
                   calories="320"
                 />
