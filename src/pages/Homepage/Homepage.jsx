@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   CalendarIcon,
   ShoppingCartIcon,
@@ -110,16 +111,17 @@ export default function Homepage() {
             }}
           >
             {[
-              { icon: ClipboardListIcon, label: "My meal Plans" },
-              { icon: UserIcon, label: "Profile" },
-              { icon: UtensilsIcon, label: "Meals" },
-              { icon: StoreIcon, label: "Shop" },
-              { icon: CompassIcon, label: "Discover" },
-              { icon: BookOpenIcon, label: "Learn" },
-              { icon: BotIcon, label: "AI ChatBot" },
-            ].map(({ icon: Icon, label }) => (
-              <button
+              { icon: ClipboardListIcon, label: "My meal Plans", path: "/" },
+              { icon: UserIcon, label: "Profile", path: "/profile" },
+              { icon: UtensilsIcon, label: "Meals", path: "/meals" },
+              { icon: StoreIcon, label: "Shop", path: "/shop" },
+              { icon: CompassIcon, label: "Discover", path: "/discover" },
+              { icon: BookOpenIcon, label: "Learn", path: "/learn" },
+              { icon: BotIcon, label: "AI ChatBot", path: "/chatbot" },
+            ].map(({ icon: Icon, label, path }) => (
+              <Link
                 key={label}
+                to={path}
                 style={{
                   display: "flex",
                   alignItems: "center",
@@ -127,10 +129,7 @@ export default function Homepage() {
                   padding: "0.75rem",
                   color: "#4b5563",
                   borderRadius: "0.375rem",
-                  backgroundColor: "transparent",
-                  border: "none",
-                  cursor: "pointer",
-                  textAlign: "left",
+                  textDecoration: "none",
                 }}
                 onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#f3f4f6")}
                 onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "transparent")}
@@ -147,7 +146,7 @@ export default function Homepage() {
                   <Icon style={{ width: "1.25rem", height: "1.25rem" }} />
                 </div>
                 <span style={{ fontWeight: "500" }}>{label}</span>
-              </button>
+              </Link>
             ))}
           </nav>
         </aside>
@@ -180,14 +179,24 @@ export default function Homepage() {
               }}
             >
               {[
-                { icon: LayoutDashboardIcon, label: "Meal Plan" },
-                { icon: BarChartIcon, label: "Log" },
-                { icon: SparklesIcon, label: "Nutri AI" },
-              ].map(({ icon: Icon, label }) => (
-                <div key={label} style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                { icon: LayoutDashboardIcon, label: "Meal Plan", path: "/meal-plan" },
+                { icon: BarChartIcon, label: "Log", path: "/log" },
+                { icon: SparklesIcon, label: "Nutri AI", path: "/nutri-ai" },
+              ].map(({ icon: Icon, label, path }) => (
+                <Link
+                  key={label}
+                  to={path}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "0.5rem",
+                    textDecoration: "none",
+                    color: "inherit",
+                  }}
+                >
                   <Icon style={{ width: "1.25rem", height: "1.25rem" }} />
                   <span style={{ fontSize: "0.875rem" }}>{label}</span>
-                </div>
+                </Link>
               ))}
             </div>
 
@@ -199,14 +208,24 @@ export default function Homepage() {
               }}
             >
               {[
-                { icon: ShoppingCartIcon, label: "cart" },
-                { icon: BellIcon, label: "Notification" },
-                { icon: UserIcon, label: "Account" },
-              ].map(({ icon: Icon, label }) => (
-                <div key={label} style={{ display: "flex", alignItems: "center", gap: "0.25rem" }}>
+                { icon: ShoppingCartIcon, label: "cart", path: "/cart" },
+                { icon: BellIcon, label: "Notification", path: "/notifications" },
+                { icon: UserIcon, label: "Account", path: "/account" },
+              ].map(({ icon: Icon, label, path }) => (
+                <Link
+                  key={label}
+                  to={path}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "0.25rem",
+                    textDecoration: "none",
+                    color: "inherit",
+                  }}
+                >
                   <Icon style={{ width: "1.25rem", height: "1.25rem" }} />
                   <span style={{ fontSize: "0.75rem" }}>{label}</span>
-                </div>
+                </Link>
               ))}
             </div>
           </header>
@@ -341,7 +360,7 @@ export default function Homepage() {
 
                     <div>
                       <h3 style={{ color: "#374151" }}>Goal</h3>
-                      <div style={{ fontSize: "1.5rem", fontWeight: "bold" }}>120 kg</div>
+                      <div style={{ fontSize: "1 sabem", fontWeight: "bold" }}>120 kg</div>
                       <div style={{ fontSize: "0.75rem", color: "#6b7280" }}>
                         Plan Adherence
                       </div>
