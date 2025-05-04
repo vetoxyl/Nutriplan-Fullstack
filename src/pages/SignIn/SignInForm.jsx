@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { signIn } from '../../lib/supabase';
 import '../../styles/SignIn.css';
+import Header from '../../components/Header.jsx'
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -29,6 +30,8 @@ const SignIn = () => {
   };
 
   return (
+    <>
+    <Header /> 
     <div className="container vh-100 d-flex flex-column justify-content-center align-items-center main-container">
       <h2>Welcome</h2>
       <div className='container lg-toggle'>
@@ -95,6 +98,7 @@ const SignIn = () => {
         Don't have an account? <Link className='sgnu' to="/signup">Sign Up</Link>
       </p>
     </div>
+    </>
   );
 };
 
