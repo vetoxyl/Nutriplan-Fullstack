@@ -3,11 +3,22 @@
 
   1. New Tables
     - `profiles`
-      - `id` (uuid, primary key, references auth.users)
-      - `full_name` (text)
-      - `avatar_url` (text)
-      - `created_at` (timestamp)
-      - `last_sign_in` (timestamp)
+        - `id` (uuid, primary key, references auth.users)
+        - `full_name` (text)
+        - `avatar_url` (text)
+        - `created_at` (timestamp)
+        - `last_sign_in` (timestamp)
+        - `current_weight` (numeric)
+        - `goal_weight` (numeric)
+        - `weekly_progress` (text)
+        - `daily_calorie_limit` (numeric)
+    - `meal_plans`
+        - `id` (uuid, primary key)
+        - `name` (text)
+        - `ingredients` (text)
+        - `calorie_count` (numeric)
+        - `sodium_content` (numeric)
+        - `dietary_category` (text)
   
   2. Security
     - Enable RLS on `profiles` table
@@ -20,7 +31,11 @@ CREATE TABLE IF NOT EXISTS profiles (
   id uuid PRIMARY KEY REFERENCES auth.users ON DELETE CASCADE,
   full_name text,
   avatar_url text,
-  created_at timestamptz DEFAULT now(),
+    created_at timestamptz DEFAULT now(),
+    current_weight numeric,
+    goal_weight numeric,
+    weekly_progress text,
+    daily_calorie_limit numeric,
   last_sign_in timestamptz DEFAULT now()
 );
 
@@ -57,3 +72,14 @@ $$ LANGUAGE plpgsql SECURITY DEFINER;
 CREATE OR REPLACE TRIGGER on_auth_user_created
   AFTER INSERT ON auth.users
   FOR EACH ROW EXECUTE FUNCTION handle_new_user();
+
+
+-- Create the meal_plans table
+CREATE TABLE meal_plans (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    name TEXT,
+    ingredients TEXT,
+    calorie_count NUMERIC,
+    sodium_content NUMERIC,
+    dietary_category TEXT
+);
