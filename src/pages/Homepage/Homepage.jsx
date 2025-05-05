@@ -400,7 +400,7 @@ export default function Homepage() {
                       label: "Creamy Salad and boiled Eggs",
                     },
                     {
-                      src: "/images/scrambledsalad.png",
+                      src: "/meals/scrambledsalad.png",
                       alt: "Mediterranean Salad Bowl",
                       label: "Mediterranean Salad Bowl",
                     },
