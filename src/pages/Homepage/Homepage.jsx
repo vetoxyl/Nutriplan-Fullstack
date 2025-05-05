@@ -395,12 +395,12 @@ export default function Homepage() {
                 >
                   {[
                     {
-                      src: "/images/creamy-salad.png",
+                      src: "/meals/creamysaladandboiledegg.jpg",
                       alt: "Creamy Salad and boiled Eggs",
                       label: "Creamy Salad and boiled Eggs",
                     },
                     {
-                      src: "/images/mediterranean-bowl.png",
+                      src: "/images/scrambledsalad.png",
                       alt: "Mediterranean Salad Bowl",
                       label: "Mediterranean Salad Bowl",
                     },
@@ -472,22 +472,22 @@ export default function Homepage() {
                   {
                     meal: "Breakfast",
                     name: "Vegan Protein Smoothie",
-                    src: "/images/smoothie.png",
+                    src: "/meals/beetsmoothie.png",
                     alt: "Vegan Protein Smoothie",
                     kcal: "320 kcal",
                   },
                   {
                     meal: "Lunch",
                     name: "Mediterranean Salad Bowl",
-                    src: "/images/mediterranean-bowl.png",
+                    src: "/meals/scrambledsalad.png",
                     alt: "Mediterranean Salad Bowl",
                     kcal: "320 kcal",
                   },
                   {
                     meal: "Dinner",
-                    name: "Lentil Curry with Brown Rice",
-                    src: "/images/lentil-curry.png",
-                    alt: "Lentil Curry with Brown Rice",
+                    name: "Avocado Salad",
+                    src: "/meals/avocadosalad.png",
+                    alt: "Avocado Salad",
                     kcal: "320 kcal",
                   },
                 ].map(({ meal, name, src, alt, kcal }, index) => (
