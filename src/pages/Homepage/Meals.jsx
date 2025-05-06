@@ -2,40 +2,40 @@ import React from "react";
 import MealCardContainer from "./MealCardContainer";
 
 const categorizedMeals = {
-  Breakfast: [
+  LowSodium: [
     {
-      imageSrc: "/images/pancakes.jpg",
-      altText: "Pancakes with syrup",
-      title: "Fluffy Pancakes"
+      imageSrc: "/meals/akaraandpap.png",
+      altText: "Akara and Pap",
+      title: "Akara and Pap"
     },
     {
-      imageSrc: "/images/omelette.jpg",
-      altText: "Veggie Omelette",
-      title: "Healthy Omelette"
+      imageSrc: "/meals/creamysaladandboiledegg.jpg",
+      altText: "Creamy Salad and Boiled Egg",
+      title: "Creamy Salad and Boiled Egg"
     }
   ],
-  Lunch: [
+  LowFat: [
     {
-      imageSrc: "/images/salad.jpg",
-      altText: "Salad and Egg",
-      title: "Creamy Salad"
+      imageSrc: "/meals/scrambledsalad.png",
+      altText: "Scrambled Salad",
+      title: "Scrambled Salad"
     },
     {
-      imageSrc: "/images/sandwich.jpg",
-      altText: "Chicken Sandwich",
-      title: "Grilled Sandwich"
+      imageSrc: "/meals/avocadosalad.png",
+      altText: "Avocado Salad",
+      title: "Avocado Salad"
     }
   ],
-  Dinner: [
+  JuiceandDrinks: [
     {
-      imageSrc: "/images/stew.jpg",
-      altText: "Beef Stew",
-      title: "Spicy Beef Stew"
+      imageSrc: "/meals/orangejuice.png",
+      altText: "Orange Juice",
+      title: "Orange Juice"
     },
     {
-      imageSrc: "/images/rice.jpg",
-      altText: "Jollof Rice",
-      title: "Jollof Rice"
+      imageSrc: "/meals/Beet Smoothie.png",
+      altText: "Beet Smoothie",
+      title: "Beet Smoothie"
     }
   ]
 };
