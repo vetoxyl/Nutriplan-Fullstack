@@ -9,6 +9,8 @@ import Homepage from './pages/Homepage/Homepage';
 import Onboarding from './pages/Onboarding/Onboard';
 import SignInForm from './pages/SignIn/SignInForm';
 import SignUpForm from './pages/SignIn/SignUpForm';
+import MealGroups from './pages/Homepage/Meals';
+import Profile from './pages/Homepage/Profile';
 import { AuthProvider } from './contexts/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import RecipeCard from './pages/Shop/RecipeCard';
@@ -18,6 +20,8 @@ import './styles/SignIn.css';
 import './styles/SignUp.css';
 import './styles/RecipeCard.css';
 import './styles/MealCard.css';
+import './styles/Profile.css';
+
 
 const App = () => {
   // Define state for user and meal data
@@ -197,6 +201,14 @@ const App = () => {
           } 
         />
         <Route 
+          path="/Profile" 
+          element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
           path="/Shop" 
           element={
             <ProtectedRoute>
@@ -204,6 +216,14 @@ const App = () => {
             </ProtectedRoute>
           } 
         /> 
+        <Route 
+          path="/Meals" 
+          element={
+            <ProtectedRoute>
+              <MealGroups />
+            </ProtectedRoute>
+          } 
+        />
         <Route path="*" element={<Navigate to="/signin" replace />} />
       </Routes>
     </AuthProvider>
