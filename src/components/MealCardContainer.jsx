@@ -1,6 +1,6 @@
 import React from "react";
 import MealCard from "./MealCard";
-import "./styles/MealCardContainer.css";
+import '../styles/MealCardContainer.css';
 
 const MealCardContainer = ({ meals }) => {
   return (

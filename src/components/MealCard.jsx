@@ -1,5 +1,5 @@
 import React from "react";
-import './styles/MealCard.css';
+import '../styles/MealCard.css';
 
 const MealCard = ({ imageSrc, title, altText }) => {
   return (

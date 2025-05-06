@@ -208,7 +208,7 @@ const DayView = ({ date, goBack }) => {
   };
 
   return (
-    <div className="day-view" style={{ padding: "24px" }}>
+    <div className="day-view" style={{ padding: "24px",fontFamily:"sans-serif"}}>
       {/* Navigation Buttons */}
       <div
         style={{
@@ -239,6 +239,7 @@ const DayView = ({ date, goBack }) => {
                 backgroundColor: isSelected ? "#007BFF" : "#f0f0f0",
                 color: isSelected ? "#fff" : "#333",
                 fontWeight: isSelected ? "bold" : "normal",
+                fontFamily:"sans-serif",
               }}
             >
               {dayDate.format("ddd")}

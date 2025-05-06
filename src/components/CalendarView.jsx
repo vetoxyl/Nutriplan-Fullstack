@@ -46,7 +46,7 @@ const CalendarView = ({ onSelectDate }) => {
   }, []);
 
   return (
-    <div style={{ width: "90%", margin: "auto", textAlign: "center" }}>
+    <div style={{ width: "90%", margin: "auto", textAlign: "center",fontFamily:"sans-serif"}}>
       {/* Header */}
       <h2 style={{ marginBottom: "10px", fontSize: "24px" }}>
         {moment(currentDate).format("MMMM YYYY")}

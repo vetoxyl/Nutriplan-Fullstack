@@ -7,6 +7,7 @@ const CalendarMeal = ({ mealName, servings, imageUrl }) => {
   return (
     <div
       style={{
+        fontFamily:"sans-serif",
         margin: "0 auto",
         display: "flex",
         alignItems: "center",
