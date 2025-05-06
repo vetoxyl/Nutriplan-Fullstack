@@ -6,22 +6,23 @@ const CalendarPage = () => {
   const [currentPage, setCurrentPage] = useState("calendar");
   const [selectedDate, setSelectedDate] = useState(null);
 
-  const goToDayView = (date) => {
-    setSelectedDate(date);
-    setCurrentPage("day");
-  };
-
-  const goBackToCalendar = () => {
-    setCurrentPage("calendar");
+  const handleDateChange = (date) => {
+    if (date === null) {
+      setCurrentPage("calendar");
+      setSelectedDate(null);
+    } else {
+      setSelectedDate(date);
+      setCurrentPage("day");
+    }
   };
 
   return (
     <>
       {currentPage === "calendar" && (
-        <CalendarView onSelectDate={goToDayView} />
+        <CalendarView onSelectDate={handleDateChange} />
       )}
       {currentPage === "day" && selectedDate && (
-        <DayView date={selectedDate} goBack={goBackToCalendar} />
+        <DayView date={selectedDate} goBack={handleDateChange} />
       )}
     </>
   );

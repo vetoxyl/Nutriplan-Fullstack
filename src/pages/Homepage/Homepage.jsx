@@ -455,6 +455,7 @@ export default function Homepage() {
                   <h2 style={{ color: "#2dc291", fontSize: "1.25rem", fontWeight: "500" }}>
                     Today's Meal
                   </h2>
+                  <a href='../../components/CalendarPage.jsx' style={{ textDecoration: 'none', color: 'inherit' }}>
                   <div
                     style={{
                       display: "flex",
@@ -466,6 +467,7 @@ export default function Homepage() {
                     <CalendarIcon style={{ width: "1.25rem", height: "1.25rem" }} />
                     <span>Calendar</span>
                   </div>
+                  </a>
                 </div>
 
                 {[
