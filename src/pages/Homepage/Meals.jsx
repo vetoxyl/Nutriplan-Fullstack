@@ -1,47 +1,51 @@
 import React from "react";
-import MealCardContainer from '../../components/MealCardContainer.jsx';
+import MealCardContainer from "./MealCardContainer.jsx";
 
 const categorizedMeals = {
   LowSodium: [
     {
       imageSrc: "/meals/akaraandpap.png",
       altText: "Akara and Pap",
-      title: "Akara and Pap"
+      title: "Akara and Pap",
     },
     {
       imageSrc: "/meals/creamysaladandboiledegg.jpg",
       altText: "Creamy Salad and Boiled Egg",
-      title: "Creamy Salad and Boiled Egg"
-    }
+      title: "Creamy Salad and Boiled Egg",
+    },
   ],
   LowFat: [
     {
       imageSrc: "/meals/scrambledsalad.png",
       altText: "Scrambled Salad",
-      title: "Scrambled Salad"
+      title: "Scrambled Salad",
     },
     {
       imageSrc: "/meals/avocadosalad.png",
       altText: "Avocado Salad",
-      title: "Avocado Salad"
-    }
+      title: "Avocado Salad",
+    },
   ],
   JuiceandDrinks: [
     {
       imageSrc: "/meals/orangejuice.png",
       altText: "Orange Juice",
-      title: "Orange Juice"
+      title: "Orange Juice",
     },
     {
       imageSrc: "/meals/Beet Smoothie.png",
       altText: "Beet Smoothie",
-      title: "Beet Smoothie"
-    }
-  ]
+      title: "Beet Smoothie",
+    },
+  ],
 };
 
-
 const MealGroups = ({ categorizedMeals }) => {
+  // Check if categorizedMeals is undefined or null
+  if (!categorizedMeals) {
+    return <div>No meals available</div>; // Handle the case where categorizedMeals is not provided
+  }
+
   return (
     <div>
       {Object.entries(categorizedMeals).map(([category, meals]) => (
@@ -54,4 +58,9 @@ const MealGroups = ({ categorizedMeals }) => {
   );
 };
 
-export default MealGroups;
+// Main component to render MealGroups
+const Meals = () => {
+  return <MealGroups categorizedMeals={categorizedMeals} />;
+};
+
+export default Meals;
