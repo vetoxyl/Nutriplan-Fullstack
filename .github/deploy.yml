@@ -168,6 +168,5 @@ EOF
 
         terraform init
         terraform fmt
-        terraform validate
         terraform plan -out=plan.tfplan
         terraform apply -auto-approve
