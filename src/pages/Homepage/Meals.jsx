@@ -33,24 +33,36 @@ const categorizedMeals = {
       title: "Orange Juice",
     },
     {
-      imageSrc: "/meals/beetsmoothie.png",
+      imageSrc: "/meals/Beet Smoothie.png",
       altText: "Beet Smoothie",
       title: "Beet Smoothie",
     },
   ],
 };
 
+const categoryTitles = {
+  LowSodium: "Recommended: Low Sodium Meals",
+  LowFat: "Low Fat Meals",
+  JuiceandDrinks: "Juices and Drinks",
+};
+
 const MealGroups = ({ categorizedMeals }) => {
-  // Check if categorizedMeals is undefined or null
   if (!categorizedMeals) {
-    return <div>No meals available</div>; // Handle the case where categorizedMeals is not provided
+    return <div>No meals available</div>;
   }
 
   return (
     <div>
       {Object.entries(categorizedMeals).map(([category, meals]) => (
         <div key={category} style={{ marginBottom: "2rem" }}>
-          <h2>{category}</h2>
+          <h2
+            style={{
+              color: "#05976a", // Set the color
+              fontFamily: "sans-serif", // Set the font family
+            }}
+          >
+            {categoryTitles[category]}
+          </h2>
           <MealCardContainer meals={meals} />
         </div>
       ))}
@@ -60,7 +72,41 @@ const MealGroups = ({ categorizedMeals }) => {
 
 // Main component to render MealGroups
 const Meals = () => {
-  return <MealGroups categorizedMeals={categorizedMeals} />;
+  return (
+    <div>
+      <div
+        className="search-bar"
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          marginBottom: "2rem",
+        }}
+      >
+        <input type="text" placeholder="Search for any meals..." />
+        <button>Search</button>
+      </div>
+      <div>
+        <h2
+          style={{ color: "#7879f1", fontSize: "1.125rem", fontWeight: "500" }}
+        >
+          Low Sodium Diet Plan Active
+        </h2>
+        <p style={{ color: "#6b7280" }}>
+          Your meal suggestions are optimized for your hypertension management.
+        </p>
+        <p
+          style={{
+            fontSize: "0.875rem",
+            color: "#9ca3af",
+            marginTop: "0.25rem",
+          }}
+        >
+          Sodium today: 1,250mg of 2,000mg limit
+        </p>
+      </div>
+      <MealGroups categorizedMeals={categorizedMeals} />
+    </div>
+  );
 };
 
 export default Meals;

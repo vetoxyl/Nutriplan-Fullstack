@@ -9,7 +9,7 @@ import Homepage from './pages/Homepage/Homepage';
 import Onboarding from './pages/Onboarding/Onboard';
 import SignInForm from './pages/SignIn/SignInForm';
 import SignUpForm from './pages/SignIn/SignUpForm';
-import MealGroups from './pages/Homepage/Meals';
+import Meals from './pages/Homepage/Meals';
 import Profile from './pages/Homepage/Profile';
 import { AuthProvider } from './contexts/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
@@ -220,7 +220,7 @@ const App = () => {
           path="/Meals" 
           element={
             <ProtectedRoute>
-              <MealGroups />
+              <Meals />
             </ProtectedRoute>
           } 
         />
