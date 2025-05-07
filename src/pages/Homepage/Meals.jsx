@@ -33,17 +33,12 @@ const categorizedMeals = {
       title: "Orange Juice",
     },
     {
-      imageSrc: "/meals/Beet Smoothie.png",
+      imageSrc: "/meals/beetsmoothie.png",
       altText: "Beet Smoothie",
       title: "Beet Smoothie",
     },
   ],
 };
-
-<div className="search-bar">
-  <input type="text" placeholder="Search for any meals..." />
-  <button>Search</button>
-</div>
 
 const MealGroups = ({ categorizedMeals }) => {
   // Check if categorizedMeals is undefined or null
