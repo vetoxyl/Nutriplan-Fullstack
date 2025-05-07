@@ -1,5 +1,5 @@
 import React from "react";
-import MealCardContainer from "./MealCardContainer.jsx";
+import MealCardContainer from '../../components/MealCardContainer.jsx';
 
 const categorizedMeals = {
   LowSodium: [
@@ -39,6 +39,11 @@ const categorizedMeals = {
     },
   ],
 };
+
+<div className="search-bar">
+  <input type="text" placeholder="Search for any meals..." />
+  <button>Search</button>
+</div>
 
 const MealGroups = ({ categorizedMeals }) => {
   // Check if categorizedMeals is undefined or null
